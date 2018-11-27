@@ -4,14 +4,17 @@ import numpy as np
 import pylab as pl
 import wave
 
-file = wave.open("testSounds/18871__zippi1__sound-bell-440hz.wav", mode="rb")
+file = wave.open("testSounds/92002__jcveliz__violin-origional.wav", mode="rb")
+print(file.getnchannels())
+print(file.getnframes())
 song = []
-for x in file.readframes(3000):
+for x in file.readframes(50864):
     song.append(x)
-print(song)
+#print(song)
+x = [x for x in range(193)]
 
-pl.close()
-pl.plot(song[::100])
+print(type(song[1]))
+pl.plot(song[38833:39026], 'r.')
 pl.xlabel("X")
 pl.ylabel("Y")
 pl.title("Title")
